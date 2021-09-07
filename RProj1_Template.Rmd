@@ -60,18 +60,21 @@ As you can see, the value is bigger in the star_data than the value in the dino_
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+For this exercise, we're going to plot a circle dataset. You're going to assign datasaurus_dozen to circle_data. Then filter and set dataset == cirlcle. Now use ggplot to visualize the data. Type which data to use and define the aesthetic mapping using x = x and y = y. To end this code, you're going to type geom_point to define the geometric shapes.
 
-```{r}
-
-
+Before setting plotting the dataset, label your section. For this section, you're going to set it up as r plot-circle.
+```{r plot-circle}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
-
-```{r}
-
-
+Now to measuer the correleation coefficent of the circle dataset. Pipe the dataset and summarize in r correlating x and y.
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
-
+This results in the value being smaller than the r of dino. The correlation coeffiecient of this dataset is -0.0683 and the r of the dino dataset is -0.0645
 ### Exercise 5
 
 (Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)

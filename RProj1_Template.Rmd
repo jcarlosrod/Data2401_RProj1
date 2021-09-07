@@ -21,7 +21,6 @@ The file has 1846 rows. The data frame has 3 variables: dataset, x-values, and y
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
 
 First let's plot the data in the dino dataset:
 
@@ -41,21 +40,23 @@ dino_data %>%
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
+For this example, instead of using dino_data you're going to change the dataset to star_data. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. If done right, a graph of a star should pop up.
 
 
 
 ```{r plot-star}
-
-
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-I'm some text, you should replace me with more meaningful text...
- 
+Now to calculate the correlation coefficient. You're going to pipe (%>%) your data set and then summarize the correlation between x and y.
 ```{r cor-star}
-
-
+star_data %>%
+  summarize(r = cor(x, y))
 ```
+As you can see, the value is bigger in the star_data than the value in the dino_data. about -0.0630 (star_data) > about -0.0645 (dino_data)
 
 ### Exercise 4
 

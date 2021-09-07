@@ -17,7 +17,7 @@ library(datasauRus)
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. This exercise does not require any R code. **Remove notes like this in the final product that you turn in**)
+The file has 1846 rows. The data frame has 3 variables: dataset, x-values, and y values.
 
 ### Exercise 2
 

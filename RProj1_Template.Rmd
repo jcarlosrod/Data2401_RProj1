@@ -2,7 +2,12 @@
 title: "R Project 1 - Hello R"
 author: "Juan C. Rodriguez"
 date: "Due Fed 3rd"
-output: html_document
+output: 
+  html_document: 
+    fig_width: 11
+    fig_height: 9
+    highlight: espresso
+    theme: sandstone
 ---
 
 MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
@@ -75,6 +80,24 @@ circle_data %>%
   summarize(r = cor(x, y))
 ```
 This results in the value being smaller than the r of dino. The correlation coeffiecient of this dataset is -0.0683 and the r of the dino dataset is -0.0645
+
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+For this exercise, we're going to plot all the datasets together. First, you're going to add R chucks and label as "plot-all". Then write down the code to plot.
+
+```{r plot-all}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+geom_point()+
+facet_wrap(~ dataset, ncol = 3) + #facet the dataset variable, in 3 cols
+theme(legend.position = 'none')
+```
+
+You're going to create another chunk here again and label it as "cor-all". For this section, you're going to calculate the correlation coefficient of all the graphs.
+
+```{r cor-all}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print()
+```
+
